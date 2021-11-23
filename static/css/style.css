@@ -1,0 +1,100 @@
+body{
+	font-size: 150%;
+	font-family: Calibri;
+	text-align: center;
+}
+
+menu {
+	background-color: #120873;
+	display: flex;
+	justify-content: space-around
+}
+
+.user_avatar{
+	width:  250px;
+	height: 300px;
+}
+
+.pupil_page{
+	
+}
+
+.reg{
+	background-color: black;
+	color: white;
+}
+
+:is(input[type=submit], button){
+	padding:5px 15px; 
+    background:#270672; 
+    color:  white;
+    font-size: 85%;
+    border:0 none;
+    cursor:pointer;
+    border-radius: 5px;
+}
+
+:is(input[type=submit], button):hover{
+	background-color: #0A64A4;
+	border-color: white;
+}
+
+:is(input[type=submit], button)78:active{
+	background-color: #008559;
+}
+
+menu :is(a:visited, a){
+	color: white;
+	text-decoration: none;
+	font-family: Calibri;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-width: 2px;
+	border-color: #120873;
+	border-style: solid;
+	border-radius: 10px;
+}
+
+:is(a:visited, a) .test{
+	margin-right: 30%;
+	margin-left: 30%;
+	padding: 2%;
+	border-color: green;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 2px;
+	text-decoration: none;
+	color: black;
+}
+
+a:hover .test{
+	color: white;
+	background-color: #120873;
+}
+
+a:active .test{
+	box-shadow: 0 0 5px 5px white;
+}
+
+.result{
+	margin-left: 30%;
+	margin-right: 30%;
+	margin-bottom: 15px;
+	border-color: green;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: 2px;
+}
+
+menu a:hover{
+	box-shadow: 0 0 5px 2px white;
+}
+
+menu a:active{
+	background-color: #0A64A4;
+	box-shadow: 0 0 5px 5px white;
+}

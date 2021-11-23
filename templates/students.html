@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for student in students %}
+      <div class="user_page_preview">
+          <div class = "user_avatar_preview">
+              <img src="static/img/users/{{student.avatar}}">
+          </div>
+          <div class="user_data_preview">
+              <p>{{student.name}}</p>
+              <p>{{student.surname}}</p>
+              <p>{{student.group}}</p>
+          </div>
+      </div>
+    {% endfor %}
+{% endblock %}

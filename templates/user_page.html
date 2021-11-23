@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="user_page">
+    <div class = "user_avatar">
+        <img src="static/img/users/{{user.avatar}}">
+    </div>
+    <div class="user_data">
+        <p>{{user.name}}</p>
+        <p>{{user.surname}}</p>
+        {% if user.patronymic != null %}
+            <p>{{user.patronymic}}</p>
+        {% endif %}
+        {% if user.role == "student" %}
+            <p>{{user.group}}</p>
+        {% elif user.role == "teacher" %}
+            <p>Преподаватель</p>
+        {% else %}
+            <p>Администратор</p>
+        {% endif %}
+    </div>
+</div>
+{% user.role == "student" %}
+    {% if results|length > 0 %}
+        {% for item in results %}
+            {%if item.mark < 3%}
+                {% set markcolor="red" %}
+                {% set bordercolor="red" %}
+            {%elif item.mark == 3%}
+                {% set markcolor="yelow" %}
+                {% set bordercolor="yelow" %}
+            {%else%}
+                {% set markcolor="green" %}
+                {% set bordercolor="green" %}
+            {%endif%}
+            <div class="result" style="border-color: {{bordercolor}}">
+                {% for tests in test %}
+                    {% if tests.id == item.test_id %}
+                        <p>{{tests.name}}</p>
+                        {% set testname = tests.name %}
+                    {% endif %}
+                {% endfor %}
+                {%if item.mark < 3%}
+                    {% set markcolor="red" %}
+                {%elif item.mark == 3%}
+                    {% set markcolor="yelow" %}
+                {%else%}
+                    {% set markcolor="green" %}
+                {%endif%}
+                <p>Сдан {{item.date}} на оценку <div style='color: {{markcolor}};'>{{item.mark}}</div></p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Оказывается, вы ещё не прошли полностью ни одного теста!</p>
+        <p>Это срочно нужно исправить!</p>
+    {% endif %}
+{% endif %}
+{% endblock %}

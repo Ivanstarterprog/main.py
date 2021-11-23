@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>На данной странице представленны доступные тесты</h2>
+{% for item in test %}
+<a href="/tests/{{item.name}}">
+    <div class="test">
+        <p>Тест - «{{item.name}}»</p>
+    </div>
+</a>
+{% endfor %}
+{% endblock %}

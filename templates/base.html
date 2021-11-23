@@ -1,0 +1,28 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet"
+          type="text/css"
+          href="{{ url_for('static', filename='css/style.css') }}">
+    <title>{{title}}</title>
+</head>
+<body>
+<header>
+    <menu>
+        <a href="/">Главная страница</a>
+        <a href="/tests.html">Тесты</a>
+        {% if user.role != "student" %}
+            <a href="/students">Студенты</a>
+        {% endif %}
+        {% if user.role = "admin" %}
+            <a href="/register">Зарегистрировать пользователя</a>
+        {% endif %}
+        <a href="/logout">Выйти</a>
+    </menu>
+</header>
+<!-- Begin page content -->
+<main role="main">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>
